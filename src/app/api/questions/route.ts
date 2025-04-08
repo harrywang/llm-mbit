@@ -2,13 +2,13 @@ import { NextResponse } from 'next/server';
 import { getQuestions } from '@/utils/questions';
 
 // Cache the questions data
-let cachedQuestions: any = null;
+let cachedQuestions: Record<string, unknown> | null = null;
 
 export async function GET() {
   try {
     // Use cached data if available
     if (!cachedQuestions) {
-      cachedQuestions = getQuestions();
+      cachedQuestions = await getQuestions();
     }
     
     return NextResponse.json(cachedQuestions);

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 
 export default function Home() {
   return (
@@ -20,7 +20,7 @@ export default function Home() {
         <CardContent className="space-y-4 text-center">
           <p>
             The Myers-Briggs Type Indicator (MBTI) is a self-report questionnaire designed to identify
-            a person's personality type, strengths, and preferences.
+            a person&apos;s personality type, strengths, and preferences.
           </p>
           <p>
             This test consists of 93 questions that will help you understand your preferences across

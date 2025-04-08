@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { useTest } from "@/context/TestContext";
 import { Question } from "@/app/test/questions";
 
+// Import the MBTIType from the context
+type MBTIType = "E" | "I" | "S" | "N" | "T" | "F" | "J" | "P";
+
 interface QuestionCardProps {
   questionId: string;
   questionData: Question;
@@ -20,7 +23,8 @@ export function QuestionCard({ questionId, questionData }: QuestionCardProps) {
     if (selectedOption) {
       // Get the corresponding MBTI type for the selected option
       const mbtiType = selectedOption === "A" ? questionData.A : questionData.B;
-      saveAnswer(questionId, mbtiType, mbtiType as any);
+      // Ensure the type is a valid MBTI type
+      saveAnswer(questionId, mbtiType, mbtiType as MBTIType);
       setSelectedOption(null); // Reset selection for next question
     }
   };

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useTest } from "@/context/TestContext";
 import { QuestionCard } from "@/components/QuestionCard";
 import { ResultsCard } from "@/components/ResultsCard";
@@ -8,6 +8,7 @@ import { TestProgress } from "@/components/TestProgress";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { questions } from "./questions";
+import Image from "next/image";
 
 // Client component using static questions data
 export default function TestPage() {
@@ -48,6 +49,9 @@ export default function TestPage() {
     <div className="container mx-auto px-4 py-8">
       <div className="max-w-2xl mx-auto">
         <div className="text-center mb-8">
+          <div className="flex justify-center mb-4">
+            <Image src="/mbti-logo.svg" alt="MBTI Logo" width={50} height={50} priority />
+          </div>
           <h1 className="text-3xl font-bold mb-2">MBTI Personality Test</h1>
           <p className="text-gray-600">
             Answer the questions honestly to discover your personality type.

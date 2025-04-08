@@ -4,7 +4,6 @@ import React, { useCallback, useMemo } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useTest } from "@/context/TestContext";
-import { Progress } from "@/components/ui/progress";
 import { MBTI_DESCRIPTIONS } from "@/data/mbtiDescriptions";
 
 export function ResultsCard() {

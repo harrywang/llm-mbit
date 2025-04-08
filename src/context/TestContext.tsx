@@ -1,6 +1,7 @@
 "use client";
 
 import React, { createContext, useContext, useState, useRef, ReactNode } from "react";
+import { questions } from "@/app/test/questions";
 
 type MBTIType = "E" | "I" | "S" | "N" | "T" | "F" | "J" | "P";
 type MBTIResult = Record<MBTIType, number>;
@@ -41,7 +42,7 @@ export function TestProvider({ children }: { children: ReactNode }) {
   
   // This will be updated when the test is reset
 
-  const saveAnswer = (questionId: string, answer: string, type: MBTIType) => {
+  const saveAnswer = (questionId: string, answer: string, _type: MBTIType) => {
     setAnswers((prev) => ({ ...prev, [questionId]: answer }));
     setCurrentQuestion((prev) => {
       const next = prev + 1;
@@ -85,18 +86,14 @@ export function TestProvider({ children }: { children: ReactNode }) {
     setResult(null);
     setProgress(0);
     
-    // Immediately import the questions to get the actual count
-    // This needs to be synchronous to prevent race conditions
+    // Get the question count from the imported questions
     try {
-      // In development mode, we need to dynamically import the questions
-      // to get the correct count after they've been randomly selected
-      const { questions } = require("@/app/test/questions");
       const questionCount = Object.keys(questions).length;
       console.log(`Test initialized with ${questionCount} questions`);
       setTotalQuestions(questionCount);
     } catch (error) {
       console.error("Failed to load questions:", error);
-      // Fallback to 93 if import fails
+      // Fallback to 93 if there's an error
       setTotalQuestions(93);
     }
   };
