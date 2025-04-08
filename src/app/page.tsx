@@ -33,7 +33,7 @@ export default function Home() {
             <li><strong>Thinking (T)</strong> vs <strong>Feeling (F)</strong></li>
             <li><strong>Judging (J)</strong> vs <strong>Perceiving (P)</strong></li>
           </ul>
-          {process.env.NEXT_PUBLIC_USE_DEV_MODE !== 'false' && (
+          {(process.env.NEXT_PUBLIC_USE_DEV_MODE || 'false') !== 'false' && (
             <p className="text-xs text-sky-600 italic">
               Currently running in development mode with 10 random questions.
             </p>
